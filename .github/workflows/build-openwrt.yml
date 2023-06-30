@@ -85,7 +85,8 @@ jobs:
         ls -l
         chmod +x $DIY_P2_SH
         cd openwrt
-        ls -l
+        ls -la
+        [ -e $CONFIG_FILE ] && cat $CONFIG_FILE |grep CONFIG_TARGET
         sleep 60
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
