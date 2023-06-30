@@ -81,14 +81,9 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && cp $GITHUB_WORKSPACE/$CONFIG_FILE openwrt/.config
-        pwd
-        ls -l
+        cp $GITHUB_WORKSPACE/$CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
         cd openwrt
-        ls -la
-        [ -e .config ] && cat .config |grep CONFIG_TARGET
-        sleep 60
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
     - name: SSH connection to Actions
