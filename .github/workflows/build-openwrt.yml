@@ -81,12 +81,12 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
-        env && mv cm520-79f openwrt/.config
+        [ -e $CONFIG_FILE ] && mv $GITHUB_WORKSPACE/$CONFIG_FILE openwrt/.config
         ls -l
         chmod +x $DIY_P2_SH
         cd openwrt
         ls -la
-        [ -e $CONFIG_FILE ] && cat $CONFIG_FILE |grep CONFIG_TARGET
+        [ -e .config ] && cat .config |grep CONFIG_TARGET
         sleep 60
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
