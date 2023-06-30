@@ -81,7 +81,7 @@ jobs:
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        env && mv cm520-79f openwrt/.config
         ls -l
         chmod +x $DIY_P2_SH
         cd openwrt
